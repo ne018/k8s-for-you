@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-frontend
+  labels:
+    app: sample-app
+    type: front-end
+spec:
+  containers:
+    - image: w1sh3r/sample-frontend
+      name: sample-frontend
+      env:
+      - name: SAMPLETEST
+        value: TESTVALUE
+      ports:
+      - containerPort: 80
