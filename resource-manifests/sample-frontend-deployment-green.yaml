@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-frontend
+  labels:
+    app: sample-frontend 
+spec:
+  selector:
+    matchLabels:
+      app:  sample-frontend
+    
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: sample-frontend
+    spec:
+      containers:
+        - image: w1sh3r/sample-frontend:green
+          imagePullPolicy: Always
+          name: sample-frontend
+          ports:
+            - containerPort: 80

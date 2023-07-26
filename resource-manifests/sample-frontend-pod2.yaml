@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: sample-frontend
+  name: sample-frontend2   # the only change
   labels:
      app: sample-frontend
 spec:
